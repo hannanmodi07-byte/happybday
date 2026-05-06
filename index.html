@@ -34,7 +34,6 @@
       50% { border-color: transparent; }
     }
 
-    /* 📸 Slideshow */
     .slideshow {
       margin: 20px auto;
       width: 250px;
@@ -50,7 +49,6 @@
       object-fit: cover;
     }
 
-    /* 💕 Hearts */
     .heart {
       position: fixed;
       bottom: -10px;
@@ -63,7 +61,6 @@
       100% { transform: translateY(-100vh); opacity: 0; }
     }
 
-    /* 🎁 Button */
     button {
       margin-top: 20px;
       padding: 10px 20px;
@@ -97,24 +94,51 @@
 
   <!-- 🎁 Surprise -->
   <button onclick="showSurprise()">Tap for a surprise 🎁</button>
-  <div id="surprise">You are my favorite person in the whole world 💖</div>
+  <div id="surprise">can we goon everyday? 😏</div>
 
   <!-- 🎵 Music -->
-  <audio autoplay loop>
+  <audio id="music" loop>
     <source src="aud.mp3" type="audio/mpeg">
   </audio>
 
+  <button onclick="document.getElementById('music').play()">
+    Play Music 🎵
+  </button>
+
   <script>
-    // 💬 Typing text
-    const text = `I know I'm sensitive and sometimes a little jealous,
+    const text = `Happy Birthday, Tasnim ❤️
+
+I know I'm sensitive and sometimes a little jealous,
 but you never left me.
 You stayed, you understood me, and you gave your best to make things right.
 
-I swear, I won’t find anyone like you in this universe.
-You’re truly one of a kind, and I’m so lucky to have you.
+And honestly… that means everything to me.
 
-On your special day, I just want to say…
-I love you more than words can express 💖`;
+No matter how far we are from each other,
+distance doesn’t change how I feel about you.
+If anything, it makes me realize even more
+how important you are in my life.
+
+I might not always be perfect,
+but one thing I’m sure about is this—
+I will never stop choosing you.
+
+I don’t care how long it takes,
+I don’t care how hard it gets,
+I’ll prove to you, again and again,
+that what I feel for you is real.
+
+Because I know…
+I won’t find anyone like you in this universe.
+
+You’re not just special,
+you’re *my* person.
+
+And one day,
+I’ll make all of this worth it.
+
+Until then…
+just stay with me ❤️`;
 
     let index = 0;
     const speed = 40;
@@ -128,9 +152,8 @@ I love you more than words can express 💖`;
       }
     }
 
-    // delay start
     window.onload = () => {
-      setTimeout(typeEffect, 2000);
+      setTimeout(typeEffect, 1500);
     };
 
     // 💕 Floating hearts
@@ -145,7 +168,7 @@ I love you more than words can express 💖`;
       setTimeout(() => heart.remove(), 5000);
     }, 500);
 
-    // 📸 Slideshow (uses your existing images)
+    // 📸 Slideshow
     const images = ["img.png", "img2.png"];
     let i = 0;
 
