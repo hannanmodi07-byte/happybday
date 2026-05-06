@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday Tasnim ❤️</title>
+<title>Happy Birthday, TASNIM 💗💐</title>
 
 <style>
 body {
@@ -18,19 +18,6 @@ h1 {
   margin-top: 40px;
 }
 
-#message {
-  font-size: 1.1em;
-  max-width: 600px;
-  margin: 20px auto;
-  border-right: 2px solid white;
-  padding-right: 5px;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}
-
 .photo {
   width: 250px;
   height: 250px;
@@ -40,16 +27,18 @@ h1 {
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.heart {
-  position: fixed;
-  bottom: -10px;
-  color: red;
-  animation: float 5s linear infinite;
+#message {
+  max-width: 600px;
+  margin: 20px auto;
+  line-height: 1.6;
+  font-size: 1.1em;
+  border-right: 2px solid white;
+  padding-right: 5px;
+  animation: blink 0.7s infinite;
 }
 
-@keyframes float {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 button {
@@ -65,26 +54,36 @@ button {
   display: none;
   margin-top: 10px;
 }
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
 </style>
 </head>
 
 <body>
 
-<h1>Happy Birthday, Tasnim ❤️</h1>
+<h1>Happy Birthday, TASNIM💗💐</h1>
 
-<!-- ✅ ONLY YOUR IMAGE -->
-<img src="img1.png?v=5" class="photo">
+<img src="img1.png?v=10" class="photo">
 
 <!-- 💬 Typing -->
 <p id="message"></p>
 
-<!-- 🎁 Surprise -->
 <button onclick="showSurprise()">Tap for a surprise 🎁</button>
 <div id="surprise">can we goon everyday? 😏</div>
 
 <!-- 🎵 Music -->
 <audio id="music" loop>
-  <source src="Mymusic.mp3" type="audio/mpeg">
+  <source src="aud.mp3" type="audio/mpeg">
 </audio>
 
 <button onclick="document.getElementById('music').play()">
@@ -93,26 +92,38 @@ button {
 
 <script>
 
-// 💬 Message
-const text = `Happy Birthday, Tasnim ❤️
-
-It’s been more than two and a half years…
-and somehow, you still manage to annoy me every single day.
-
-You say “anyway” like it solves everything,
-you act like you don’t care,
-and yet… you’re the one I think about the most.
-
-My dishwasher 😒❤️
-
-I know I'm sensitive and sometimes a little jealous,
+// 💬 YOUR TEXT (formatted for typing)
+const text = `I know I'm sensitive and sometimes a little jealous,
 but you never left me.
 You stayed, you understood me, and you gave your best to make things right.
 
-No matter how far we are,
-distance doesn’t matter to me.
+And honestly… that means everything to me.
 
-I’ll always choose you ❤️`;
+No matter how far we are from each other,
+distance doesn’t change how I feel about you.
+If anything, it makes me realize even more
+how important you are in my life.
+
+I might not always be perfect,
+but one thing I’m sure about is this—
+I will never stop choosing you.
+
+I don’t care how long it takes,
+I don’t care how hard it gets,
+I’ll prove to you, again and again,
+that what I feel for you is real.
+
+Because I know…
+I won’t find anyone like you in this universe.
+
+You’re not just special,
+you’re my person.
+
+And one day,
+I’ll make all of this worth it.
+
+Until then…
+just stay with me 🥀`;
 
 let i = 0;
 
@@ -121,7 +132,7 @@ function typeEffect() {
     document.getElementById("message").innerHTML += 
       text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
     i++;
-    setTimeout(typeEffect, 40);
+    setTimeout(typeEffect, 35);
   }
 }
 
