@@ -2,121 +2,149 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday, TASNIM 💐💗</title>
+<title>Happy Birthday Tasnim ❤️</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    text-align: center;
-    color: white;
-}
-
-.container {
-    padding: 20px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: white;
+  overflow-x: hidden;
 }
 
 h1 {
-    font-size: 28px;
-    margin-top: 20px;
+  margin-top: 40px;
+}
+
+#message {
+  font-size: 1.1em;
+  max-width: 600px;
+  margin: 20px auto;
+  border-right: 2px solid white;
+  padding-right: 5px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
 }
 
 .photo {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin: 20px auto;
-    display: block;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-.text {
-    max-width: 90%;
-    margin: auto;
-    line-height: 1.6;
-    font-size: 14px;
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: red;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 20px;
-    background: white;
-    color: #ff6b81;
-    font-weight: bold;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: #ff4b5c;
 }
 
 #surprise {
-    margin-top: 10px;
-    font-size: 14px;
+  display: none;
+  margin-top: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<h1>Happy Birthday, Tasnim ❤️</h1>
 
-<h1>Happy Birthday, Tasnim 💗💐</h1>
-
-<!-- ✅ FIXED IMAGE -->
+<!-- ✅ ONLY YOUR IMAGE -->
 <img src="img1.png?v=5" class="photo">
 
-<div class="text">
-<p>I know I'm sensitive and sometimes a little jealous,<br>
-but you never left me.<br>
-You stayed, you understood me, and you gave your best to make things right.</p>
+<!-- 💬 Typing -->
+<p id="message"></p>
 
-<p>And honestly… that means everything to me.</p>
-
-<p>No matter how far we are from each other,<br>
-distance doesn’t change how I feel about you.<br>
-If anything, it makes me realize even more<br>
-how important you are in my life.</p>
-
-<p>I might not always be perfect,<br>
-but one thing I’m sure about is this—<br>
-I will never stop choosing you.</p>
-
-<p>I don’t care how long it takes,<br>
-I don’t care how hard it gets,<br>
-I’ll prove to you, again and again,<br>
-that what I feel for you is real.</p>
-
-<p>Because I know…<br>
-I won’t find anyone like you in this universe.</p>
-
-<p>You’re not just special,<br>
-you’re <b>my</b> person.</p>
-
-<p>And one day,<br>
-I’ll make all of this worth it.</p>
-
-<p>Until then…<br>
-just stay with me ❤️</p>
-</div>
-
+<!-- 🎁 Surprise -->
 <button onclick="showSurprise()">Tap for a surprise 🎁</button>
-<div id="surprise"></div>
+<div id="surprise">can we goon everyday? 😏</div>
 
-<button onclick="playMusic()">Play Music 🎵</button>
+<!-- 🎵 Music -->
+<audio id="music" loop>
+  <source src="Mymusic.mp3" type="audio/mpeg">
+</audio>
 
-<audio id="music" src="Mymusic.mp3"></audio>
-
-</div>
+<button onclick="document.getElementById('music').play()">
+  Play Music 🎵
+</button>
 
 <script>
-function showSurprise() {
-    document.getElementById("surprise").innerText = "can we goon everyday? 👅";
+
+// 💬 Message
+const text = `Happy Birthday, Tasnim ❤️
+
+It’s been more than two and a half years…
+and somehow, you still manage to annoy me every single day.
+
+You say “anyway” like it solves everything,
+you act like you don’t care,
+and yet… you’re the one I think about the most.
+
+My dishwasher 😒❤️
+
+I know I'm sensitive and sometimes a little jealous,
+but you never left me.
+You stayed, you understood me, and you gave your best to make things right.
+
+No matter how far we are,
+distance doesn’t matter to me.
+
+I’ll always choose you ❤️`;
+
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("message").innerHTML += 
+      text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 40);
+  }
 }
 
-function playMusic() {
-    document.getElementById("music").play();
+window.onload = () => {
+  setTimeout(typeEffect, 1000);
+};
+
+// 💕 Hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+
+// 🎁 Surprise
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
 }
+
 </script>
 
 </body>
