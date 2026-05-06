@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +10,30 @@ body {
   margin: 0;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  background: linear-gradient(135deg, #ff758c, #ff7eb3, #fad0c4);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
   color: white;
   overflow-x: hidden;
+  transition: transform 0.3s ease;
 }
 
-h1 {
-  margin-top: 40px;
+body.pulse {
+  animation: gradientMove 10s ease infinite, beat 0.8s ease-in-out infinite;
 }
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+h1 { margin-top: 40px; }
 
 .photo {
   width: 250px;
@@ -31,7 +48,6 @@ h1 {
   max-width: 600px;
   margin: 20px auto;
   line-height: 1.6;
-  font-size: 1.1em;
   border-right: 2px solid white;
   padding-right: 5px;
   animation: blink 0.7s infinite;
@@ -60,6 +76,13 @@ button {
   bottom: -10px;
   color: red;
   animation: float 5s linear infinite;
+  text-shadow: 0 0 10px red, 0 0 20px pink;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.heart.beat {
+  transform: scale(1.6);
+  text-shadow: 0 0 20px red, 0 0 40px pink, 0 0 60px hotpink;
 }
 
 @keyframes float {
@@ -71,29 +94,25 @@ button {
 
 <body>
 
-<h1>Happy Birthday, TASNIM💗💐</h1>
+<h1>Happy Birthday, TASNIM 💗💐</h1>
 
-<img src="img1.png?v=10" class="photo">
+<img src="img1.png?v=100" class="photo">
 
-<!-- 💬 Typing -->
 <p id="message"></p>
 
 <button onclick="showSurprise()">Tap for a surprise 🎁</button>
 <div id="surprise">can we goon everyday? 😏</div>
 
-<!-- 🎵 Music -->
 <audio id="music" loop>
   <source src="aud.mp3" type="audio/mpeg">
 </audio>
 
-<button onclick="document.getElementById('music').play()">
-  Play Music 🎵
-</button>
+<button onclick="toggleMusic()">Play Music 🎵</button>
 
 <script>
 
-// 💬 YOUR TEXT (formatted for typing)
-const text = `I know I'm sensitive and sometimes a little jealous,
+// 💬 TEXT
+const text =  `I know I'm sensitive and sometimes a little jealous,
 but you never left me.
 You stayed, you understood me, and you gave your best to make things right.
 
@@ -124,7 +143,6 @@ I’ll make all of this worth it.
 
 Until then…
 just stay with me 🥀`;
-
 let i = 0;
 
 function typeEffect() {
@@ -140,7 +158,24 @@ window.onload = () => {
   setTimeout(typeEffect, 1000);
 };
 
-// 💕 Hearts
+// 🎵 MUSIC + BACKGROUND PULSE
+const music = document.getElementById("music");
+let playing = false;
+
+function toggleMusic() {
+  if (!playing) {
+    music.play();
+    document.body.classList.add("pulse");
+  } else {
+    music.pause();
+    document.body.classList.remove("pulse");
+  }
+  playing = !playing;
+}
+
+// 💕 HEARTS
+const hearts = [];
+
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -148,10 +183,25 @@ setInterval(() => {
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = (Math.random() * 20 + 10) + "px";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 5000);
+  hearts.push(heart);
+
+  setTimeout(() => {
+    heart.remove();
+    hearts.shift();
+  }, 5000);
 }, 500);
 
-// 🎁 Surprise
+// 💓 HEART BEAT SYNC
+setInterval(() => {
+  if (!music.paused) {
+    hearts.forEach(h => h.classList.add("beat"));
+    setTimeout(() => {
+      hearts.forEach(h => h.classList.remove("beat"));
+    }, 200);
+  }
+}, 800);
+
+// 🎁 SURPRISE
 function showSurprise() {
   document.getElementById("surprise").style.display = "block";
 }
