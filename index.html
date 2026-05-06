@@ -1,187 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Birthday Tasnim ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, TASNIM 💐💗</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      color: white;
-      overflow-x: hidden;
-    }
+<style>
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    text-align: center;
+    color: white;
+}
 
-    h1 {
-      margin-top: 40px;
-      font-size: 2.8em;
-    }
+.container {
+    padding: 20px;
+}
 
-    #message {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: 20px auto;
-      line-height: 1.6;
-      border-right: 3px solid white;
-      padding-right: 5px;
-      animation: blink 0.7s infinite;
-    }
+h1 {
+    font-size: 28px;
+    margin-top: 20px;
+}
 
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
+.photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
 
-    .slideshow {
-      margin: 20px auto;
-      width: 250px;
-      height: 250px;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
+.text {
+    max-width: 90%;
+    margin: auto;
+    line-height: 1.6;
+    font-size: 14px;
+}
 
-    .slideshow img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: white;
+    color: #ff6b81;
+    font-weight: bold;
+}
 
-    .heart {
-      position: fixed;
-      bottom: -10px;
-      color: red;
-      animation: float 5s linear infinite;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-100vh); opacity: 0; }
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 20px;
-      background: white;
-      color: #ff4b5c;
-      cursor: pointer;
-    }
-
-    #surprise {
-      display: none;
-      margin-top: 15px;
-      font-size: 1.2em;
-    }
-  </style>
+#surprise {
+    margin-top: 10px;
+    font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-  <h1>Happy Birthday, Tasnim ❤️</h1>
+<div class="container">
 
-  <!-- 📸 Slideshow -->
-  <div class="slideshow">
-    <img id="slide" src="img.png">
-  </div>
+<h1>Happy Birthday, Tasnim 💗💐</h1>
 
-  <!-- 💬 Typing Message -->
-  <p id="message"></p>
+<!-- ✅ FIXED IMAGE -->
+<img src="img1.png?v=5" class="photo">
 
-  <!-- 🎁 Surprise -->
-  <button onclick="showSurprise()">Tap for a surprise 🎁</button>
-  <div id="surprise">can we goon everyday? 😏</div>
+<div class="text">
+<p>I know I'm sensitive and sometimes a little jealous,<br>
+but you never left me.<br>
+You stayed, you understood me, and you gave your best to make things right.</p>
 
-  <!-- 🎵 Music -->
-  <audio id="music" loop>
-    <source src="aud.mp3" type="audio/mpeg">
-  </audio>
+<p>And honestly… that means everything to me.</p>
 
-  <button onclick="document.getElementById('music').play()">
-    Play Music 🎵
-  </button>
+<p>No matter how far we are from each other,<br>
+distance doesn’t change how I feel about you.<br>
+If anything, it makes me realize even more<br>
+how important you are in my life.</p>
 
-  <script>
-    const text = `Happy Birthday, Tasnim ❤️
+<p>I might not always be perfect,<br>
+but one thing I’m sure about is this—<br>
+I will never stop choosing you.</p>
 
-I know I'm sensitive and sometimes a little jealous,
-but you never left me.
-You stayed, you understood me, and you gave your best to make things right.
+<p>I don’t care how long it takes,<br>
+I don’t care how hard it gets,<br>
+I’ll prove to you, again and again,<br>
+that what I feel for you is real.</p>
 
-And honestly… that means everything to me.
+<p>Because I know…<br>
+I won’t find anyone like you in this universe.</p>
 
-No matter how far we are from each other,
-distance doesn’t change how I feel about you.
-If anything, it makes me realize even more
-how important you are in my life.
+<p>You’re not just special,<br>
+you’re <b>my</b> person.</p>
 
-I might not always be perfect,
-but one thing I’m sure about is this—
-I will never stop choosing you.
+<p>And one day,<br>
+I’ll make all of this worth it.</p>
 
-I don’t care how long it takes,
-I don’t care how hard it gets,
-I’ll prove to you, again and again,
-that what I feel for you is real.
+<p>Until then…<br>
+just stay with me ❤️</p>
+</div>
 
-Because I know…
-I won’t find anyone like you in this universe.
+<button onclick="showSurprise()">Tap for a surprise 🎁</button>
+<div id="surprise"></div>
 
-You’re not just special,
-you’re *my* person.
+<button onclick="playMusic()">Play Music 🎵</button>
 
-And one day,
-I’ll make all of this worth it.
+<audio id="music" src="Mymusic.mp3"></audio>
 
-Until then…
-just stay with me ❤️`;
+</div>
 
-    let index = 0;
-    const speed = 40;
+<script>
+function showSurprise() {
+    document.getElementById("surprise").innerText = "can we goon everyday? 👅";
+}
 
-    function typeEffect() {
-      if (index < text.length) {
-        document.getElementById("message").innerHTML += 
-          text.charAt(index) === "\n" ? "<br>" : text.charAt(index);
-        index++;
-        setTimeout(typeEffect, speed);
-      }
-    }
-
-    window.onload = () => {
-      setTimeout(typeEffect, 1500);
-    };
-
-    // 💕 Floating hearts
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = (Math.random() * 20 + 10) + "px";
-      document.body.appendChild(heart);
-
-      setTimeout(() => heart.remove(), 5000);
-    }, 500);
-
-    // 📸 Slideshow
-    const images = ["img.png", "img2.png"];
-    let i = 0;
-
-    setInterval(() => {
-      i = (i + 1) % images.length;
-      document.getElementById("slide").src = images[i];
-    }, 3000);
-
-    // 🎁 Surprise
-    function showSurprise() {
-      document.getElementById("surprise").style.display = "block";
-    }
-  </script>
+function playMusic() {
+    document.getElementById("music").play();
+}
+</script>
 
 </body>
 </html>
